@@ -1,23 +1,34 @@
 const router = require("express").Router();
 require("dotenv").config();
-const axios = require('axios')
+const axios = require("axios");
 
-router.get('/api', async (req, res) => {
+router.get("/api/trending", async (req, res) => {
   await axios
-    .get(`http://api.giphy.com/v1/gifs/trending?limit=30&api_key=${process.env.API_KEY}`)
-    .then(response => {
-      console.log(response.data)
-      res.json(response.data)
+    .get(
+      `http://api.giphy.com/v1/gifs/trending?limit=30&api_key=${process.env.API_KEY}`
+    )
+    .then((response) => {
+      console.log(response.data);
+      res.json(response.data);
     })
-    .catch(err => {
-      res.json(err)
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+router.get("/api/search/:value", async (req, res) => {
+  console.log(req.params.value);
+  await axios
+    .get(
+      `http://api.giphy.com/v1/gifs/search?q=${req.params.value}?limit=30&api_key=${process.env.API_KEY}`
+    )
+    .then((response) => {
+      // console.log(response.data);
+      res.json(response.data);
     })
-})
-
-router.get('/trending', (req, res) => {
-  console.log('Successfully hit Internal API')
-})
-
-
+    .catch((err) => {
+      res.json(err);
+    });
+});
 
 module.exports = router;
