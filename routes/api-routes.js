@@ -3,7 +3,7 @@ require("dotenv").config();
 const axios = require('axios')
 
 router.get('/api', async (req, res) => {
-  axios
+  await axios
     .get(`http://api.giphy.com/v1/gifs/trending?limit=30&api_key=${process.env.API_KEY}`)
     .then(response => {
       console.log(response.data)
