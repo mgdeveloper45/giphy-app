@@ -1,68 +1,57 @@
-
 import { useEffect, useState } from "react";
 import axios from "axios";
-import styled from "styled-components";
 
 // import SearchBar from "./components/SearchBar";
-import ImgContainer from "./components/ImgContainer.js";
-// import Carousel from "./components/Carousel.js";
+
+import Trending from "./components/Trending.js";
+import SearchResults from "./components/SearchResults.js";
+// import SearchBar from "./components/SearchBar.js";
+import Button from "./components/SearchBar/Button.js";
+import Input from "./components/SearchBar/Input.js";
+import AppContainer from "./components/AppContainer.js";
 
 function App() {
   const [trending, setTrending] = useState([]);
   const [value, setValue] = useState("");
-  
-  const [searchGifs, setSearchGifs] = useState([])
+  const [searchGifs, setSearchGifs] = useState([]);
 
   const onChange = (e) => {
     setValue(e.target.value);
     console.log(value);
   };
 
-
   const searchForGifs = async (search) => {
     try {
-      const searchResults = await axios.get(`/api/search?q=${search}`)
-      setSearchGifs(searchResults.data)
+      const searchResults = await axios.get(`/api/search?q=${search}`);
+      setSearchGifs(searchResults.data);
+      console.log(searchGifs);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   };
 
   useEffect(() => {
     (async () => {
-      axios
-        .get("/api/trending")
-        .then((res) => {
-          console.log(res.data.data);
-          setTrending([...trending, ...res.data.data]);
-        })
-        .catch((err) => console.log(err));
+      try {
+        const trendingResults = await axios.get(`/api/trending`);
+        setTrending(trendingResults.data);
+      } catch (err) {
+        console.log(err);
+      }
     })();
   }, []);
-  return (
-    <div className="App">
-      <input onChange={onChange}></input>
-      <button onClick={() => searchForGifs(value)} type="submit">
-        search
-      </button>
 
-      {/* <SearchBar /> */}
-      {/* <Carousel trending={trending}></Carousel> */}
-      <ImgContainer>
-        {trending.map((trending, index) => (
-          <img
-            src={trending.images.fixed_height.url}
-            key={index}
-            alt="broked"
-          />
-        ))}
-      </ImgContainer>
-      <ImgContainer>
-        {searchGifs.map((gif, index) => (
-          <img key={index} src={gif.gifAnimated} alt="broken" />
-        ))}
-      </ImgContainer>
-    </div>
+  return (
+    <AppContainer>
+      <div>
+        {" "}
+        <Input onChange={onChange} />
+        <Button onClick={() => searchForGifs(value)} type="submit" />
+      </div>
+
+      <Trending trending={trending} />
+      <SearchResults searchGifs={searchGifs} />
+    </AppContainer>
   );
 }
 
