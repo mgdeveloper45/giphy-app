@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
@@ -9,26 +10,22 @@ import ImgContainer from "./components/ImgContainer.js";
 function App() {
   const [trending, setTrending] = useState([]);
   const [value, setValue] = useState("");
-  const [search, setSearch] = useState("");
+  
+  const [searchGifs, setSearchGifs] = useState([])
 
   const onChange = (e) => {
     setValue(e.target.value);
     console.log(value);
   };
 
-  const onClick = (e) => {
-    e.preventDefault();
-    setSearch(value);
-  };
 
-  const onSubmit = (e) => {
-    axios
-      .get(`/api/search/${value}`)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
-    
+  const searchForGifs = async (search) => {
+    try {
+      const searchResults = await axios.get(`/api/search?q=${search}`)
+      setSearchGifs(searchResults.data)
+    } catch (err) {
+      console.log(err)
+    }
   };
 
   useEffect(() => {
@@ -45,7 +42,7 @@ function App() {
   return (
     <div className="App">
       <input onChange={onChange}></input>
-      <button onClick={onSubmit} type="submit">
+      <button onClick={() => searchForGifs(value)} type="submit">
         search
       </button>
 
@@ -58,6 +55,11 @@ function App() {
             key={index}
             alt="broked"
           />
+        ))}
+      </ImgContainer>
+      <ImgContainer>
+        {searchGifs.map((gif, index) => (
+          <img key={index} src={gif.gifAnimated} alt="broken" />
         ))}
       </ImgContainer>
     </div>
