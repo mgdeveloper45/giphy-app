@@ -9,6 +9,7 @@ import SearchResults from "./components/SearchResults.js";
 import Button from "./components/SearchBar/Button.js";
 import Input from "./components/SearchBar/Input.js";
 import AppContainer from "./components/AppContainer.js";
+import Search from './components/Search.js'
 
 function App() {
   const [trending, setTrending] = useState([]);
@@ -44,11 +45,11 @@ function App() {
 
   return (
     <AppContainer>
-      <div>
-        {" "}
-        <Input onChange={onChange} />
-        <Button onClick={() => searchForGifs(value)} type="submit" />
-      </div>
+      
+        <Search>
+          <Input onChange={onChange} />
+          <Button onClick={() => searchForGifs(value)} type="submit" />
+        </Search>
 
       
       <Trending trending={trending} />
