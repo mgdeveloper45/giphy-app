@@ -14,24 +14,27 @@ const TrendingContainer = styled.div`
 `;
 
 const Img = styled.img`
-  margin-left: 5px;
-  margin-right: 5px;
-  border-radius:5px;
+  border-radius: 5px;
+  :nth-child(n + 2) {
+    margin-left: 5px;
+    
+  }
 `;
 
 const TrendingHeader = styled.header`
   font-size: ${(props) => props.size};
   color: white;
-  display:flex;
-  justify-content:flex-start;
-  width:60vw;
+  display: flex;
+  justify-content: flex-start;
+  width: 60vw;
+  font-weight:bold;
 `;
 
 const Trending = (props) => {
   return (
     <>
       <TrendingHeader size='20px'>
-        <FiTrendingUp style={{ color: "blue", marginRight:'10px' }} />
+        <FiTrendingUp style={{ color: "blue", marginRight:'10px', fontSize:'30px' }} />
         Trending
       </TrendingHeader>
       <TrendingContainer>

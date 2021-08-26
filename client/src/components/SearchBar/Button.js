@@ -3,8 +3,16 @@ import styled from "styled-components";
 import { BiSearchAlt } from "react-icons/bi";
 
 const ButtonContainer = styled.button`
-  /* border-radius: 1rem; */
-  margin-top:5px;
+  
+  width:10%;
+  padding:0;
+  margin:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+    > * {
+      font-size:20px;
+    }
 `;
 
 

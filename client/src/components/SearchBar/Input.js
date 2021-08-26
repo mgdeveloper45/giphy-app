@@ -2,10 +2,9 @@ import React from 'react'
 import styled from "styled-components";
 
 const InputContainer = styled.input`
-  width: 70%;
-  height: 1.5rem;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  width: 90%;
+  height:2rem;
+  
 `;
 
 

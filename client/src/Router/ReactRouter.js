@@ -21,9 +21,6 @@ const Nav = () => {
         <Route path="/">
           <Home />
         </Route>
-        {/* <Route path="/entertainment">
-          <Entertainment />
-        </Route> */}
       </Switch>
     </Router>
   );
