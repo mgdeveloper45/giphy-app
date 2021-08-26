@@ -9,7 +9,7 @@ router.get("/api/trending", async (req, res) => {
     );
     const gifArray = gifRes.data.data.map((item) => {
       return {
-        gifAnimated: item.images.fixed_height.url,
+        gifAnimated: item.images.fixed_height_small.url,
       };
     });
     res.json(gifArray);
