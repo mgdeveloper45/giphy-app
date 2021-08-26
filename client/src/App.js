@@ -17,14 +17,14 @@ function App() {
 
   const onChange = (e) => {
     setValue(e.target.value);
-    console.log(value);
+    
   };
 
   const searchForGifs = async (search) => {
     try {
       const searchResults = await axios.get(`/api/search?q=${search}`);
       setSearchGifs(searchResults.data);
-      console.log(searchGifs);
+      
     } catch (err) {
       console.log(err);
     }
@@ -35,6 +35,7 @@ function App() {
       try {
         const trendingResults = await axios.get(`/api/trending`);
         setTrending(trendingResults.data);
+        
       } catch (err) {
         console.log(err);
       }
@@ -49,7 +50,10 @@ function App() {
         <Button onClick={() => searchForGifs(value)} type="submit" />
       </div>
 
+      
       <Trending trending={trending} />
+
+      
       <SearchResults searchGifs={searchGifs} />
     </AppContainer>
   );
