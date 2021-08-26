@@ -4,7 +4,7 @@ import styled from "styled-components";
 const InputContainer = styled.input`
   width: 90%;
   height:2rem;
-  
+
 `;
 
 
