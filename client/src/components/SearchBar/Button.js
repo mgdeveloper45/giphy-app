@@ -9,9 +9,25 @@ const ButtonContainer = styled.button`
   margin: 0;
   display: flex;
   justify-content: center;
+  color:white;
   align-items: center;
   > * {
     font-size: 20px;
+  }
+  background: linear-gradient(270deg, purple, red);
+  background-size: 400% 400%;
+
+  animation: linkhover 30s ease infinite;
+  @keyframes linkhover {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 `;
 

@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { FiTrendingUp } from "react-icons/fi";
+import { BiTrendingUp } from "react-icons/bi";
 
 const TrendingContainer = styled.div`
   width: 60vw;
   display: flex;
-
+  
   flex-flow: row;
   overflow-x: scroll;
   ::-webkit-scrollbar {
@@ -27,14 +27,18 @@ const TrendingHeader = styled.header`
   display: flex;
   justify-content: flex-start;
   width: 60vw;
-  font-weight:bold;
+  font-weight:700;
+  margin-top:15px;
+  margin-bottom:5px;
 `;
 
 const Trending = (props) => {
   return (
     <>
-      <TrendingHeader size='20px'>
-        <FiTrendingUp style={{ color: "blue", marginRight:'10px', fontSize:'30px' }} />
+      <TrendingHeader size="20px">
+        <BiTrendingUp
+          style={{ color: "blue", marginRight: "10px", fontSize: "30px" }}
+        />
         Trending
       </TrendingHeader>
       <TrendingContainer>
