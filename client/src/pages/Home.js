@@ -23,8 +23,6 @@ const Home = () => {
   return (
     <div>
       <Trending trending={trending} />
-
-      
     </div>
   );
 }

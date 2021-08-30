@@ -2,6 +2,7 @@ const router = require("express").Router();
 require("dotenv").config();
 const axios = require("axios");
 
+
 router.get("/api/trending", async (req, res) => {
   try {
     const gifRes = await axios.get(
@@ -9,6 +10,7 @@ router.get("/api/trending", async (req, res) => {
     );
     const gifArray = gifRes.data.data.map((item) => {
       return {
+        
         gifAnimated: item.images.fixed_height_small.url,
       };
     });
