@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { BiTrendingUp } from "react-icons/bi";
+// import {AiOutlineThunderbolt} from 'react-icons/Ai'
 
-const TrendingContainer = styled.div`
+const AnimeContainer = styled.div`
   width: 60vw;
   display: flex;
   flex-flow: row;
@@ -19,33 +19,33 @@ const Img = styled.img`
   }
 `;
 
-const TrendingHeader = styled.header`
+const AnimeHeader = styled.header`
   font-size: ${(props) => props.size};
   color: white;
   display: flex;
   justify-content: flex-start;
   width: 60vw;
-  font-weight:700;
-  margin-top:15px;
-  margin-bottom:5px;
+  font-weight: 700;
+  margin-top: 15px;
+  margin-bottom: 5px;
 `;
 
-const Trending = (props) => {
+const Anime = (props) => {
   return (
     <>
-      <TrendingHeader size="20px">
-        <BiTrendingUp
+      <AnimeHeader size="20px">
+        {/* <AiOutlineThunderbolt
           style={{ color: "blue", marginRight: "10px", fontSize: "30px" }}
-        />
-        Trending
-      </TrendingHeader>
-      <TrendingContainer>
-        {props.trending.map((trending, index) => (
-          <Img src={trending.gifAnimated} key={index} alt="broked" />
+        /> */}
+        Anime
+      </AnimeHeader>
+      <AnimeContainer>
+        {props.anime.map((anime, index) => (
+          <Img src={anime.gifAnimated} key={index} alt="broked" />
         ))}
-      </TrendingContainer>
+      </AnimeContainer>
     </>
   );
 };
 
-export default Trending;
+export default Anime;

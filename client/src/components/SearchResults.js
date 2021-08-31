@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const SearchContainer = styled.div`
-  width: 80%;
+  width: 60vw;
   display: flex;
   flex-flow: row;
   overflow-x: scroll;
