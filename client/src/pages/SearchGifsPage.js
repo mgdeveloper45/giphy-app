@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import SearchResults from "../components/SearchResults.js";
 
 const SearchGifsPage = (props) => {
   return (
     <div>
-      <SearchResults searchGifs={props.searchGifs} />
+      <SearchResults
+      currentSearch={props.currentSearch} 
+      toggle={props.toggle} 
+      value={props.value} 
+      searchGifs={props.searchGifs} 
+      />
     </div>
   );
 };

@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { FiTrendingUp } from "react-icons/fi";
 import GIF from './GIF'
+import  { Carousel }  from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const TrendingContainer = styled.div`
   width: 60vw;
@@ -18,6 +20,27 @@ const TrendingIcon = styled(FiTrendingUp)`
   font-size: 2rem;
   margin-right: 0.75rem;
 `
+
+
+// const TrendingContainer = styled.div`
+//   width: 60vw;
+//   display: flex;
+
+//   flex-flow: row;
+//   overflow-x: scroll;
+//   ::-webkit-scrollbar {
+//     width: 0 !important;
+//   }
+// `;
+
+const Img = styled.img`
+  border-radius: 5px;
+  :nth-child(n + 2) {
+    margin-left: 5px;
+    height: 30px;
+    width: 30px;
+  }
+`;
 
 const TrendingHeader = styled.header`
   font-size: ${props => props.size};
@@ -41,7 +64,10 @@ const Trending = ({ trending }) => {
         <TrendingIcon />
         Trending
       </TrendingHeader>
-      <TrendingContainer>{renderTrending}</TrendingContainer>
+      <TrendingContainer>{renderTrending()}</TrendingContainer>
+      <Carousel>
+       {renderTrending()}
+      </Carousel>
     </>
   )
 }
