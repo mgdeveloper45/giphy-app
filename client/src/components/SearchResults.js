@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
 
 const SearchContainer = styled.div`
@@ -24,6 +24,6 @@ const SearchResults = (props) => {
       ))}
     </SearchContainer>
   );
-}
+};
 
-export default SearchResults
+export default SearchResults;
