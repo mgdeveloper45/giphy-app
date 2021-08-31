@@ -1,23 +1,26 @@
 import React from "react";
 import styled from "styled-components";
-import { FiTrendingUp } from "react-icons/fi";
+import { FiTrendingUp } from "react-icons/fi"
+import  { Carousel }  from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const TrendingContainer = styled.div`
-  width: 60vw;
-  display: flex;
+// const TrendingContainer = styled.div`
+//   width: 60vw;
+//   display: flex;
 
-  flex-flow: row;
-  overflow-x: scroll;
-  ::-webkit-scrollbar {
-    width: 0 !important;
-  }
-`;
+//   flex-flow: row;
+//   overflow-x: scroll;
+//   ::-webkit-scrollbar {
+//     width: 0 !important;
+//   }
+// `;
 
 const Img = styled.img`
   border-radius: 5px;
   :nth-child(n + 2) {
     margin-left: 5px;
-    
+    height: 30px;
+    width: 30px;
   }
 `;
 
@@ -37,11 +40,11 @@ const Trending = (props) => {
         <FiTrendingUp style={{ color: "blue", marginRight:'10px', fontSize:'30px' }} />
         Trending
       </TrendingHeader>
-      <TrendingContainer>
+      <Carousel>
         {props.trending.map((trending, index) => (
-          <Img src={trending.gifAnimated} key={index} alt="broked" />
+          <Img src={trending.gifAnimated} key={index} alt="broked" /> 
         ))}
-      </TrendingContainer>
+      </Carousel>
     </>
   );
 };

@@ -17,12 +17,14 @@ const Img = styled.img`
   width: 10 vw;
 `;
 const Title = styled.div`
+  margin-top: 15px;
+  margin-bottom: 15px;
   height: 30px;
   color: white;
   margin: none;
   border: none;
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 30px;
+  font-weight: 700;
 `;
 const Tipper = styled.div`
   display: block;
@@ -30,7 +32,7 @@ const Tipper = styled.div`
   height: 10px;
   width: 80px;
   border-radius: 0 0 45px 45px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 `
 const SearchResults = (props) => {
   return (

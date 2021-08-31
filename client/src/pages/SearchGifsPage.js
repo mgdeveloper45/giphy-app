@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import SearchResults from "../components/SearchResults.js";
 
 const SearchGifsPage = (props) => {

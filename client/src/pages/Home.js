@@ -7,7 +7,6 @@ const Home = () => {
 
   const [trending, setTrending] = useState([]);
 
-
   useEffect(() => {
     (async () => {
       try {
