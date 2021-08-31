@@ -16,6 +16,7 @@ import Nav from "./components/Nav.js";
 import Home from "./pages/Home.js";
 import SearchResults from "./components/SearchResults.js";
 import SearchGifsPage from "./pages/SearchGifsPage.js";
+import Random from "./pages/Random.js";
 
 function App() {
   const [value, setValue] = useState("");
@@ -63,6 +64,9 @@ function App() {
           </Route>
           <Route path="/favs">
             <h1>My favs</h1>
+          </Route>
+          <Route path="/random">
+            <Random />
           </Route>
         </Switch>
       </Router>
