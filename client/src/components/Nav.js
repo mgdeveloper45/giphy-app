@@ -89,7 +89,11 @@ const Nav = () => {
       </Link>
       <Link style={link} to="/favs">
         <StyledLink>Favorites</StyledLink>
-        <Border/>
+        <Border />
+      </Link>
+      <Link style={link} to="/random">
+        <StyledLink>Random</StyledLink>
+        <Border />
       </Link>
     </NavWrap>
   );
