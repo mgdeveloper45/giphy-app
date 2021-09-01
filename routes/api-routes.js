@@ -59,7 +59,7 @@ router.get("/api/animals", async (req, res) => {
 router.get("/api/anime", async (req, res) => {
   try {
     const gifRes = await axios.get(
-      `http://api.giphy.com/v1/gifs/search?q=anime&limit=30&api_key=${process.env.API_KEY}`
+      `http://api.giphy.com/v1/gifs/search?q=anime&limit=30&rating=g&api_key=${process.env.API_KEY}`
     );
     const gifArray = gifRes.data.data.map((item) => {
       return {

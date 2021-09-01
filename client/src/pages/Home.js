@@ -60,6 +60,7 @@ const Home = () => {
       <Trending trending={trending} />
       <Animals animals={animals} />
       <Anime anime={anime} />
+      
     </div>
   );
 };

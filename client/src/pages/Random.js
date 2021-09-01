@@ -3,16 +3,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
-// const Div = styled.div`
-//   height:60vh;
-//   margin-top:20px;
-// `;
-
-// const Div2 = styled.div`
-  
-//   margin-top:20px;
-// `;
-
 const Img = styled.img`
   max-height: 75vh;
   width: 60vw;

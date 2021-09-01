@@ -9,11 +9,12 @@ const TrendingContainer = styled.div`
   width: 60vw;
   display: flex;
   flex-flow: row;
+  
   overflow-x: scroll;
   ::-webkit-scrollbar {
     width: 0 !important;
   }
-`
+`;
 
 const TrendingIcon = styled(FiTrendingUp)`
   color: blue;
@@ -33,14 +34,7 @@ const TrendingIcon = styled(FiTrendingUp)`
 //   }
 // `;
 
-const Img = styled.img`
-  border-radius: 5px;
-  :nth-child(n + 2) {
-    margin-left: 5px;
-    height: 30px;
-    width: 30px;
-  }
-`;
+
 
 const TrendingHeader = styled.header`
   font-size: ${props => props.size};
@@ -49,27 +43,30 @@ const TrendingHeader = styled.header`
   justify-content: flex-start;
   width: 60vw;
   font-weight: bold;
+  margin-top:10px;
+  margin-bottom:5
+  padding:0px;
 `
 
 
 const Trending = ({ trending }) => {
   const renderTrending = () => {
     return trending.map(({gifAnimated}, index) => {
-      return <GIF key={index} index={index} gif={gifAnimated} />
+      return <GIF style={{paddingBottom:' 0px'}} key={index} index={index} gif={gifAnimated} />
     })
   }
   return (
     <>
-      <TrendingHeader size='1.3rem'>
+      <TrendingHeader size="1.3rem">
         <TrendingIcon />
         Trending
       </TrendingHeader>
       <TrendingContainer>{renderTrending()}</TrendingContainer>
-      <Carousel>
-       {renderTrending()}
-      </Carousel>
+      {/* <Carousel width={"50%"} autoPlay={true} >
+        {renderTrending()}
+      </Carousel> */}
     </>
-  )
+  );
 }
 
 export default Trending
@@ -81,7 +78,6 @@ export default Trending
             <img src={trending.gifAnimated} key={index} alt='broked' />
             <FavsButton />
           </Gif>
-
           <GIF key={index} index={index} gif={trending} />
         ))}
       </TrendingContainer> */
