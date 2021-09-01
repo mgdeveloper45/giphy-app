@@ -16,7 +16,7 @@ const Home = () => {
     (async () => {
       try {
         const apiData = await axios.get(`/api`);
-        console.log("api object ==> ", apiData.data);
+        console.log("api object", apiData.data);
       } catch (err) {
         console.log(err);
       }

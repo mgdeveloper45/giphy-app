@@ -13,25 +13,13 @@ const TrendingContainer = styled.div`
   ::-webkit-scrollbar {
     width: 0 !important;
   }
-`
+`;
 
 const TrendingIcon = styled(FiTrendingUp)`
   color: blue;
   font-size: 2rem;
   margin-right: 0.75rem;
-`
-
-
-// const TrendingContainer = styled.div`
-//   width: 60vw;
-//   display: flex;
-
-//   flex-flow: row;
-//   overflow-x: scroll;
-//   ::-webkit-scrollbar {
-//     width: 0 !important;
-//   }
-// `;
+`;
 
 const Img = styled.img`
   border-radius: 5px;
@@ -49,7 +37,7 @@ const TrendingHeader = styled.header`
   justify-content: flex-start;
   width: 60vw;
   font-weight: bold;
-`
+`;
 
 
 const Trending = ({ trending }) => {
@@ -75,13 +63,3 @@ const Trending = ({ trending }) => {
 export default Trending
 
 
-  /* <TrendingContainer>
-        {trending.map((trending, index) => (
-          <Gif key={index}>
-            <img src={trending.gifAnimated} key={index} alt='broked' />
-            <FavsButton />
-          </Gif>
-
-          <GIF key={index} index={index} gif={trending} />
-        ))}
-      </TrendingContainer> */

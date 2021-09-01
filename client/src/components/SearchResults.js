@@ -5,6 +5,8 @@ const SearchContainer = styled.div`
   width: 60vw;
   display: flex;
   flex-flow: row wrap;
+  border: 5px solid white;
+  background: linear-gradient(to right, #2F6398, #595079);
   justify-content: space-between;
   overflow-x: scroll;
   ::-webkit-scrollbar {
@@ -13,8 +15,7 @@ const SearchContainer = styled.div`
 `;
 
 const Img = styled.img`
-  margin: 5px, 5px;
-  width: 10 vw;
+  margin: 15px 15px 0 15px;
 `;
 const Title = styled.div`
   margin-top: 15px;
@@ -28,7 +29,7 @@ const Title = styled.div`
 `;
 const Tipper = styled.div`
   display: block;
-  background: linear-gradient(to right, #33ccff, #ff99cc);
+  background: linear-gradient(to right, #2F6398, #595079);
   height: 10px;
   width: 80px;
   border-radius: 0 0 45px 45px;
