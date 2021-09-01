@@ -65,8 +65,8 @@ const Trending = ({ trending }) => {
         Trending
       </TrendingHeader>
       <TrendingContainer>{renderTrending()}</TrendingContainer>
-      <Carousel>
-       {renderTrending()}
+      <Carousel width={"60vw"} dynamicHeight={true}>
+        {renderTrending()}
       </Carousel>
     </>
   )
