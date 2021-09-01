@@ -16,7 +16,7 @@ router.get("/api", async (req, res) => {
 router.get("/api/random", async (req, res) => {
   try {
     const gifRes = await axios.get(
-      `https://api.giphy.com/v1/gifs/random?api_key=BYo4GyYhVMuM32WB4Uxm5s8ZiGJ0tVLw&tag=&rating=g`
+      `https://api.giphy.com/v1/gifs/random?api_key=${process.env.API_KEY}&tag=&rating=g`
     );
     res.json(gifRes.data.data.images.fixed_height.url);
   } catch {
@@ -85,6 +85,22 @@ router.get("/api/search", async (req, res) => {
     res.json(gifArray);
   } catch (err) {
     res.json(err);
+  }
+});
+
+router.get("/api/gaming", async (req, res) => {
+  try {
+    const gamingRes = await axios.get(
+      `http://api.giphy.com/v1/gifs/search?q=gaming&limit=30&api_key=${process.env.API_KEY}`
+    );
+    const gamingArr = gamingRes.data.data.map((item) => {
+      return {
+        gifAnimated: item.images.fixed_height.url,
+      };
+    });
+    res.json(gamingArr);
+  } catch (err) {
+    console.log(err);
   }
 });
 

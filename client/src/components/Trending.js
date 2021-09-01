@@ -65,6 +65,9 @@ const Trending = ({ trending }) => {
       {/* <Carousel width={"50%"} autoPlay={true} >
         {renderTrending()}
       </Carousel> */}
+      {/* <Carousel width={"60vw"} dynamicHeight={true}>
+        {renderTrending()}
+      </Carousel> */}
     </>
   );
 }
