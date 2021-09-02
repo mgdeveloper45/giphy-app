@@ -21,7 +21,7 @@ function App() {
   const [currentSearch, setCurrentSearch] = useState("");
 
   const onChange = (e) => {
-    setValue(e.target.value);
+    setValue(e.target.value.toUpperCase());
   };
 
   const searchForGifs = async (search) => {
