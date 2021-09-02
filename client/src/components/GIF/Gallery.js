@@ -27,12 +27,15 @@ const Gallery = ({ children }) => {
 
   const renderGallery = ({ targetState }) => {
     return targetState.map(({ gifAnimated }, index) => {
-      return <GIF key={index} index={index} gif={gifAnimated} />
+      // return <GIF key={index} index={index} gif={gifAnimated} />
     })
   }
 
   const Container = styled.div`
-    display: block;
+    border-radius: 5px;
+    :nth-child(n + 2) {
+      margin-left: 5px;
+    }
   `
   return <Container>{children}</Container>
 }
