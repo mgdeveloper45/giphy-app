@@ -9,10 +9,10 @@ import AppContainer from "./components/AppContainer.js";
 import Search from "./components/Search.js";
 import Nav from "./components/Nav.js";
 import Home from "./pages/Home.js";
-import SearchResults from "./components/SearchResults.js";
 import SearchGifsPage from "./pages/SearchGifsPage.js";
 import Favorites from "./pages/Favs";
 import Random from "./pages/Random.js";
+import Categories from './pages/Categories.js'
 
 function App() {
   const [value, setValue] = useState("");
@@ -61,6 +61,7 @@ function App() {
               searchGifs={searchGifs}
             />
           </Route>
+          <Route path="/categories" component={Categories} />
           <Route path="/favs" component={Favorites} />
           <Route path="/random" component={Random} />
         </Switch>

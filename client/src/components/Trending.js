@@ -9,9 +9,17 @@ const TrendingContainer = styled.div`
   width: 60vw;
   display: flex;
   flex-flow: row;
+
   overflow-x: scroll;
   ::-webkit-scrollbar {
-    width: 0 !important;
+    background: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.4);
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888;
   }
 `;
 
@@ -21,14 +29,7 @@ const TrendingIcon = styled(FiTrendingUp)`
   margin-right: 0.75rem;
 `;
 
-const Img = styled.img`
-  border-radius: 5px;
-  :nth-child(n + 2) {
-    margin-left: 5px;
-    height: 30px;
-    width: 30px;
-  }
-`;
+
 
 const TrendingHeader = styled.header`
   font-size: ${props => props.size};
@@ -37,29 +38,44 @@ const TrendingHeader = styled.header`
   justify-content: flex-start;
   width: 60vw;
   font-weight: bold;
-`;
+  margin-top:10px;
+  margin-bottom:5
+  padding:0px;
+`
 
 
 const Trending = ({ trending }) => {
   const renderTrending = () => {
     return trending.map(({gifAnimated}, index) => {
-      return <GIF key={index} index={index} gif={gifAnimated} />
+      return <GIF style={{paddingBottom:' 0px'}} key={index} index={index} gif={gifAnimated} />
     })
   }
   return (
     <>
-      <TrendingHeader size='1.3rem'>
+      <TrendingHeader size="1.3rem">
         <TrendingIcon />
         Trending
       </TrendingHeader>
       <TrendingContainer>{renderTrending()}</TrendingContainer>
-      <Carousel width={"60vw"} dynamicHeight={true}>
+      {/* <Carousel width={"50%"} autoPlay={true} >
         {renderTrending()}
-      </Carousel>
+      </Carousel> */}
+      {/* <Carousel width={"60vw"} dynamicHeight={true}>
+        {renderTrending()}
+      </Carousel> */}
     </>
-  )
+  );
 }
 
 export default Trending
 
 
+  /* <TrendingContainer>
+        {trending.map((trending, index) => (
+          <Gif key={index}>
+            <img src={trending.gifAnimated} key={index} alt='broked' />
+            <FavsButton />
+          </Gif>
+          <GIF key={index} index={index} gif={trending} />
+        ))}
+      </TrendingContainer> */

@@ -9,18 +9,11 @@ const Button = styled(GiTechnoHeart)`
 `
 
 const AddFavs = ({ gif, index }) => {
-  // const SavedFavs = localStorage.getItem('Favs')
-  // const savedFavsSetter = targetedGif => localStorage.setItem('Favs', targetedGif)
-
-  // const accessSavedFavs = () => {
-  //   SavedFavs === null
-  //     ? savedFavsSetter(JSON.stringify([]))
-  //     : setFavs(JSON.parse(SavedFavs))
-  // }
+  
   const [favs, setFavs] = useState([])
 
   useEffect(() => {
-    // accessSavedFavs()
+    
 
     const storedFavs = JSON.parse(window.localStorage.getItem('Favs'))
 
