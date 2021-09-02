@@ -29,6 +29,7 @@ router.get("/api/trending", async (req, res) => {
     const gifRes = await axios.get(
       `http://api.giphy.com/v1/gifs/trending?limit=30&api_key=${process.env.API_KEY}`
     );
+
     const gifArray = gifRes.data.data.map((item) => {
       return {
         gifAnimated: item.images.fixed_height.url,

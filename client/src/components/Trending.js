@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { FiTrendingUp } from "react-icons/fi";
-import GIF from './GIF'
-import  { Carousel }  from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import GIF from './GIF/GIF'
+import { Carousel } from 'react-responsive-carousel'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import Gallery from './GIF/Gallery'
 
 const TrendingContainer = styled.div`
   width: 60vw;
@@ -20,7 +21,6 @@ const TrendingIcon = styled(FiTrendingUp)`
   font-size: 2rem;
   margin-right: 0.75rem;
 `
-
 
 // const TrendingContainer = styled.div`
 //   width: 60vw;
@@ -40,7 +40,7 @@ const Img = styled.img`
     height: 30px;
     width: 30px;
   }
-`;
+`
 
 const TrendingHeader = styled.header`
   font-size: ${props => props.size};
@@ -51,23 +51,24 @@ const TrendingHeader = styled.header`
   font-weight: bold;
 `
 
-
 const Trending = ({ trending }) => {
-  const renderTrending = () => {
-    return trending.map(({gifAnimated}, index) => {
-      return <GIF key={index} index={index} gif={gifAnimated} />
-    })
-  }
+  // const renderTrending = () => {
+  //   return trending.map(({gifAnimated}, index) => {
+  //     return <GIF key={index} index={index} gif={gifAnimated} />
+  //   })
+  // }
   return (
     <>
       <TrendingHeader size='1.3rem'>
         <TrendingIcon />
         Trending
       </TrendingHeader>
-      <TrendingContainer>{renderTrending()}</TrendingContainer>
-      <Carousel>
-       {renderTrending()}
-      </Carousel>
+      <TrendingContainer>
+        <Gallery>
+          <GIF />
+        </Gallery>
+      </TrendingContainer>
+      {/* <Carousel>{renderTrending()}</Carousel> */}
     </>
   )
 }
