@@ -14,10 +14,10 @@ import AppContainer from "./components/AppContainer.js";
 import Search from "./components/Search.js";
 import Nav from "./components/Nav.js";
 import Home from "./pages/Home.js";
-import SearchResults from "./components/SearchResults.js";
 import SearchGifsPage from "./pages/SearchGifsPage.js";
 import Favorites from './pages/Favs'
 import Random from "./pages/Random.js";
+import Categories from './pages/Categories.js'
 
 function App() {
   const [value, setValue] = useState("");
@@ -46,29 +46,30 @@ function App() {
           <Input onChange={onChange} />
           <Button
             onClick={() => {
-              setToggle(true)
+              setToggle(true);
               searchForGifs(value);
-              setCurrentSearch(value)
+              setCurrentSearch(value);
             }}
-            type='submit'
+            type="submit"
           />
         </Search>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/searchpage">
             <SearchGifsPage
-            currentSearch={currentSearch} 
-            toggle={toggle}
-            value={value} 
-            searchGifs={searchGifs}
+              currentSearch={currentSearch}
+              toggle={toggle}
+              value={value}
+              searchGifs={searchGifs}
             />
           </Route>
-          <Route path="/favs" component={Favorites}/>
-          <Route path="/random" component={Random}/>
+          <Route path="/categories" component={Categories} />
+          <Route path="/favs" component={Favorites} />
+          <Route path="/random" component={Random} />
         </Switch>
       </Router>
     </AppContainer>
-  )
+  );
 }
 
 export default App;

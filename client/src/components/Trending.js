@@ -9,10 +9,17 @@ const TrendingContainer = styled.div`
   width: 60vw;
   display: flex;
   flex-flow: row;
-  
+
   overflow-x: scroll;
   ::-webkit-scrollbar {
-    width: 0 !important;
+    background: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.4);
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888;
   }
 `;
 
