@@ -24,12 +24,12 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       try {
-        const trendingResults = await axios.get(`/api/trending`)
-        setTrending(trendingResults.data)
+        const trendingResults = await axios.get(`/api/trending`);
+        setTrending(trendingResults.data);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     })();
   }, []);
@@ -50,19 +50,17 @@ const Home = () => {
       try {
         const animeRes = await axios.get(`/api/anime`);
         setAnime(animeRes.data);
-        
       } catch (err) {
         console.log(err);
       }
     })();
   }, []);
-  
+
   useEffect(() => {
     (async () => {
       try {
         const gamingRes = await axios.get(`/api/gaming`);
         setGaming(gamingRes.data);
-        
       } catch (err) {
         console.log(err);
       }
