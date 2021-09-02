@@ -6,7 +6,7 @@ import styled from "styled-components";
 const Img = styled.img`
   max-height: 75vh;
   width: 60vw;
-  
+  object-fit: contain;
 `;
 const Button = styled.button`
   width: 60vw;
