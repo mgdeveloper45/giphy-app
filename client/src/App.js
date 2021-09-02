@@ -35,20 +35,19 @@ function App() {
     }
   };
 
+  const initiateSearch = () => {
+    setToggle(true);
+    searchForGifs(value);
+    setCurrentSearch(value);
+  };
+
   return (
     <AppContainer>
       <Router>
         <Nav />
         <Search>
           <Input onChange={onChange} />
-          <Button
-            onClick={() => {
-              setToggle(true);
-              searchForGifs(value);
-              setCurrentSearch(value);
-            }}
-            type="submit"
-          />
+          <Button value={value} initiateSearch={initiateSearch} type="submit" />
         </Search>
 
         <Switch>
