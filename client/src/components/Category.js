@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const IMG = styled.img`
-  width: 200px;
-  height: 100px;
+  width: 240px;
+  height: 130px;
   object-fit: cover;
   border-radius: 10px;
-  margin:5px;
+  // margin-bottom:30px;
+  
 `;
 const Title = styled.p`
   color: white;
@@ -14,14 +15,10 @@ const Title = styled.p`
   font-size: 25px; 
   margin-top: 10px;
 `;
-
-
 const Category = (props) => {
   return (
     <div>
-      <Title>
-        Categories
-      </Title>
+      <Title>Categories</Title>
       <div
         style={{
           marginTop: "20px",
@@ -36,10 +33,11 @@ const Category = (props) => {
           <div
             key={index}
             style={{
+              padding:'10px',
               position: "relative",
               display: "flex",
               justifyContent: "center",
-              alignItems: "center",
+              alignItems:'center'
             }}
           >
             <div
