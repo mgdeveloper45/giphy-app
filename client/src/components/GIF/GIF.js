@@ -3,11 +3,7 @@ import styled from 'styled-components'
 import { AddFav } from '../Favs/index.js'
 
 const Gallery = styled.div`
-  width: 60vw;
   display: inline-flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
   border-radius: 5px;
   :nth-child(n + 2) {
     margin-left: 5px;
@@ -15,9 +11,7 @@ const Gallery = styled.div`
 `
 const Img = styled.img`
   border-radius: 5px;
-  width: 12.5rem;
-  height: 12.5rem;
-  padding-bottom: 1rem;
+  padding-bottom: 0px !important;
 `
 
 const GIF = ({ gifArray, index }) => {
