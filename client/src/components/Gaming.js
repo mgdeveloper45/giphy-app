@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import GIF from './GIF/GIF'
 
 const Container = styled.div`
   width: 60vw;
@@ -17,7 +17,7 @@ const Container = styled.div`
   ::-webkit-scrollbar-thumb:hover {
     background: #888;
   }
-`;
+`
 
 const Img = styled.img`
   border-radius: 5px;
@@ -25,10 +25,10 @@ const Img = styled.img`
   :nth-child(n + 2) {
     margin-left: 5px;
   }
-`;
+`
 
 const Header = styled.header`
-  font-size: ${(props) => props.size};
+  font-size: ${props => props.size};
   color: white;
   display: flex;
   justify-content: flex-start;
@@ -36,21 +36,17 @@ const Header = styled.header`
   font-weight: 700;
   margin-top: 15px;
   margin-bottom: 5px;
-`;
+`
 
-const Gaming = (props) => {
-    return (
-        <>
-            <Header>
-                Gaming
-            </Header> 
-            <Container>
-                {props.gaming.map((gaming, index) => (
-                  <Img key={index} src={gaming.gifAnimated} alt="broked" />  
-                ))}
-            </Container> 
-        </>
-    )
+const Gaming = ({ gaming }) => {
+  return (
+    <>
+      <Header>Gaming</Header>
+      <Container>
+        <GIF gifArray={gaming} />
+      </Container>
+    </>
+  )
 }
 
 export default Gaming

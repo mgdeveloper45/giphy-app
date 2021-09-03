@@ -45,9 +45,9 @@ const TrendingHeader = styled.header`
   justify-content: flex-start;
   width: 60vw;
   font-weight: bold;
-  margin-top:10px;
-  margin-bottom:5
-  padding:0px;
+  margin-top: 10px;
+  margin-bottom: 5;
+  padding: 0px;
 `
 
 const Trending = ({ trending }) => {

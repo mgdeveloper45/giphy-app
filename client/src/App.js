@@ -27,7 +27,23 @@ function App() {
   const searchForGifs = async (search) => {
     try {
       const searchResults = await axios.get(`/api/search?q=${search}`);
-      setSearchGifs(searchResults.data);
+       const apiData = searchResults.data.data
+
+       const giphyData = () => {
+         return apiData.map((gif, index) => {
+           // console.log(gif)
+           const dataModel = {
+             ID: gif.id,
+             Title: gif.title,
+             AnimatedURL: gif.images.fixed_height.url,
+             StillURL: gif.images.fixed_height_still.url,
+             EmbedURL: gif.embed_url,
+           }
+           return dataModel
+         })
+       }
+       const gifArray = giphyData()
+       setSearchGifs(gifArray)
       document.querySelector("#searchInput").value = "";
       setValue("");
     } catch (err) {

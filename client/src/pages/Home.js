@@ -126,7 +126,23 @@ const Home = () => {
     ;(async () => {
       try {
         const gamingRes = await axios.get(`/api/gaming`)
-        setGaming(gamingRes.data)
+        const apiData = gamingRes.data.data
+
+        const giphyData = () => {
+          return apiData.map((gif, index) => {
+            // console.log(gif)
+            const dataModel = {
+              ID: gif.id,
+              Title: gif.title,
+              AnimatedURL: gif.images.fixed_height_small.url,
+              StillURL: gif.images.fixed_height_still.url,
+              EmbedURL: gif.embed_url,
+            }
+            return dataModel
+          })
+        }
+        const gifArray = giphyData()
+        setGaming(gifArray)
       } catch (err) {
         console.log(err)
       }

@@ -7,14 +7,13 @@ const IMG = styled.img`
   object-fit: cover;
   border-radius: 10px;
   // margin-bottom:30px;
-  
-`;
+`
 const Title = styled.p`
   color: white;
   margin-left: 5px;
-  font-size: 25px; 
+  font-size: 25px;
   margin-top: 10px;
-`;
+`
 const Category = (props) => {
   return (
     <div>

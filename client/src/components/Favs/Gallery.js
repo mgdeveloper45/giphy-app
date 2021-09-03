@@ -3,18 +3,20 @@ import React from 'react'
 import GIF from '../GIF/GIF'
 import styled from 'styled-components'
 
+const Text = styled.p`
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+`
+
 const FavsGallery = index => {
   const storedFavs = JSON.parse(window.localStorage.getItem('Favs'))
-  const emptyFavsMessage = `No Saved Favs Yet!`
-
-  const GalleryGIF = styled(GIF)`
-    width: 12.5rem;
-  `
+  const emptyFavsMessage = <Text>No Saved Favs Yet!</Text>
 
   if (storedFavs === undefined || null) {
     return emptyFavsMessage
   } else {
-    return <GalleryGIF gifArray={storedFavs} index={index} />
+    return <GIF gifArray={storedFavs} index={index} />
   }
 }
 
