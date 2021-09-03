@@ -9,7 +9,7 @@ const ButtonContainer = styled.button`
   margin: 0;
   display: flex;
   justify-content: center;
-  color:white;
+  color: white;
   align-items: center;
   > * {
     font-size: 20px;
@@ -36,8 +36,10 @@ const Button = (props) => {
   return (
     <ButtonContainer
       onClick={() => {
-        props.onClick();
-        history.push("/searchpage");
+        if (props.value.length > 0) {
+          props.initiateSearch();
+          history.push("/searchpage");
+        }
       }}
     >
       <BiSearchAlt />

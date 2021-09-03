@@ -1,12 +1,7 @@
 import { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import axios from "axios";
-
 
 import Button from "./components/SearchBar/Button.js";
 import Input from "./components/SearchBar/Input.js";
@@ -14,29 +9,37 @@ import AppContainer from "./components/AppContainer.js";
 import Search from "./components/Search.js";
 import Nav from "./components/Nav.js";
 import Home from "./pages/Home.js";
-import SearchResults from "./components/SearchResults.js";
 import SearchGifsPage from "./pages/SearchGifsPage.js";
-import Favorites from './pages/Favs'
+import Favorites from "./pages/Favs";
 import Random from "./pages/Random.js";
+import Categories from './pages/Categories.js'
 
 function App() {
   const [value, setValue] = useState("");
   const [searchGifs, setSearchGifs] = useState([]);
   const [toggle, setToggle] = useState(false);
-  const [currentSearch, setCurrentSearch] = useState("")
+  const [currentSearch, setCurrentSearch] = useState("");
 
   const onChange = (e) => {
-    setValue(e.target.value);
+    setValue(e.target.value.toUpperCase());
   };
-  
+
   const searchForGifs = async (search) => {
     try {
-      const searchResults = await axios.get(`/api/search?q=${search}`)
-      setSearchGifs(searchResults.data)
+      const searchResults = await axios.get(`/api/search?q=${search}`);
+      setSearchGifs(searchResults.data);
+      document.querySelector("#searchInput").value = "";
+      setValue("");
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
+
+  const initiateSearch = () => {
+    setToggle(true);
+    searchForGifs(value);
+    setCurrentSearch(value);
+  };
 
   return (
     <AppContainer>
@@ -44,31 +47,26 @@ function App() {
         <Nav />
         <Search>
           <Input onChange={onChange} />
-          <Button
-            onClick={() => {
-              setToggle(true)
-              searchForGifs(value);
-              setCurrentSearch(value)
-            }}
-            type='submit'
-          />
+          <Button value={value} initiateSearch={initiateSearch} type="submit" />
         </Search>
+
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/searchpage">
             <SearchGifsPage
-            currentSearch={currentSearch} 
-            toggle={toggle}
-            value={value} 
-            searchGifs={searchGifs}
+              currentSearch={currentSearch}
+              toggle={toggle}
+              value={value}
+              searchGifs={searchGifs}
             />
           </Route>
-          <Route path="/favs" component={Favorites}/>
-          <Route path="/random" component={Random}/>
+          <Route path="/categories" component={Categories} />
+          <Route path="/favs" component={Favorites} />
+          <Route path="/random" component={Random} />
         </Switch>
       </Router>
     </AppContainer>
-  )
+  );
 }
 
 export default App;

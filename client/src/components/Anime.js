@@ -9,12 +9,20 @@ const AnimeContainer = styled.div`
   flex-flow: row;
   overflow-x: scroll;
   ::-webkit-scrollbar {
-    width: 0 !important;
+    background: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.4);
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888;
   }
 `
 
 const Img = styled.img`
   border-radius: 5px;
+  margin-bottom: 20px;
   :nth-child(n + 2) {
     margin-left: 5px;
   }

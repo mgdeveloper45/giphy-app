@@ -1,16 +1,16 @@
-import React from "react";
-import Trending from "../components/Trending.js";
-import Animals from "../components/Animals.js";
-import Anime from "../components/Anime.js";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import React from 'react'
+import Trending from '../components/Trending.js'
+import Animals from '../components/Animals.js'
+import Anime from '../components/Anime.js'
+import Gaming from '../components/Gaming.js'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const Home = () => {
-  const [trending, setTrending] = useState([]);
-  const [animals, setAnimals] = useState([]);
-  const [anime, setAnime] = useState([]);
-
-
+  const [trending, setTrending] = useState([])
+  const [animals, setAnimals] = useState([])
+  const [anime, setAnime] = useState([])
+  const [gaming, setGaming] = useState([])
 
   useEffect(() => {
     ;(async () => {
@@ -80,7 +80,7 @@ const Home = () => {
             const dataModel = {
               ID: gif.id,
               Title: gif.title,
-              AnimatedURL: gif.images.fixed_height.url,
+              AnimatedURL: gif.images.fixed_height_small.url,
               StillURL: gif.images.fixed_height_still.url,
               EmbedURL: gif.embed_url,
             }
@@ -107,7 +107,7 @@ const Home = () => {
             const dataModel = {
               ID: gif.id,
               Title: gif.title,
-              AnimatedURL: gif.images.fixed_height.url,
+              AnimatedURL: gif.images.fixed_height_small.url,
               StillURL: gif.images.fixed_height_still.url,
               EmbedURL: gif.embed_url,
             }
@@ -121,13 +121,26 @@ const Home = () => {
       }
     })()
   }, [])
+
+  useEffect(() => {
+    ;(async () => {
+      try {
+        const gamingRes = await axios.get(`/api/gaming`)
+        setGaming(gamingRes.data)
+      } catch (err) {
+        console.log(err)
+      }
+    })()
+  }, [])
+
   return (
     <div>
       <Trending trending={trending} />
       <Animals animals={animals} />
       <Anime anime={anime} />
+      <Gaming gaming={gaming} />
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
