@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { FiTrendingUp } from "react-icons/fi";
-import GIF from './GIF'
-import  { Carousel }  from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import React from 'react'
+import styled from 'styled-components'
+import { FiTrendingUp } from 'react-icons/fi'
+import GIF from './GIF/GIF'
+import { Carousel } from 'react-responsive-carousel'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 const TrendingContainer = styled.div`
   width: 60vw;
@@ -21,15 +21,22 @@ const TrendingContainer = styled.div`
   ::-webkit-scrollbar-thumb:hover {
     background: #888;
   }
-`;
+`
 
 const TrendingIcon = styled(FiTrendingUp)`
   color: blue;
   font-size: 2rem;
   margin-right: 0.75rem;
-`;
+`
 
-
+const Img = styled.img`
+  border-radius: 5px;
+  :nth-child(n + 2) {
+    margin-left: 5px;
+    height: 30px;
+    width: 30px;
+  }
+`
 
 const TrendingHeader = styled.header`
   font-size: ${props => props.size};
@@ -43,34 +50,24 @@ const TrendingHeader = styled.header`
   padding:0px;
 `
 
-
 const Trending = ({ trending }) => {
-  const renderTrending = () => {
-    return trending.map(({gifAnimated}, index) => {
-      return <GIF style={{paddingBottom:' 0px'}} key={index} index={index} gif={gifAnimated} />
-    })
-  }
   return (
     <>
-      <TrendingHeader size="1.3rem">
+      <TrendingHeader size='1.3rem'>
         <TrendingIcon />
         Trending
       </TrendingHeader>
-      <TrendingContainer>{renderTrending()}</TrendingContainer>
-      {/* <Carousel width={"50%"} autoPlay={true} >
-        {renderTrending()}
-      </Carousel> */}
-      {/* <Carousel width={"60vw"} dynamicHeight={true}>
-        {renderTrending()}
-      </Carousel> */}
+      <TrendingContainer>
+        <GIF gifArray={trending} />
+      </TrendingContainer>
+      {/* <Carousel>{renderTrending()}</Carousel> */}
     </>
-  );
+  )
 }
 
 export default Trending
 
-
-  /* <TrendingContainer>
+/* <TrendingContainer>
         {trending.map((trending, index) => (
           <Gif key={index}>
             <img src={trending.gifAnimated} key={index} alt='broked' />
