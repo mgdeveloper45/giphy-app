@@ -16,11 +16,6 @@ const Container = styled.div`
 `
 
 const Favorites = () => {
-  // const [storedFavs, setStoredFavs] = useState(
-  //   JSON.parse(window.localStorage.getItem('Favs'))
-  // )
-  // useEffect(() => {}, [storedFavs])
-
   return (
     <Container>
       <FavsHeader />

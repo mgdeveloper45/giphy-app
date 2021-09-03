@@ -4,7 +4,6 @@ import { FiTrendingUp } from "react-icons/fi";
 import GIF from './GIF/GIF'
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import Gallery from './GIF/Gallery'
 
 const TrendingContainer = styled.div`
   width: 60vw;
@@ -21,17 +20,6 @@ const TrendingIcon = styled(FiTrendingUp)`
   font-size: 2rem;
   margin-right: 0.75rem;
 `
-
-// const TrendingContainer = styled.div`
-//   width: 60vw;
-//   display: flex;
-
-//   flex-flow: row;
-//   overflow-x: scroll;
-//   ::-webkit-scrollbar {
-//     width: 0 !important;
-//   }
-// `;
 
 const Img = styled.img`
   border-radius: 5px;
@@ -52,11 +40,6 @@ const TrendingHeader = styled.header`
 `
 
 const Trending = ({ trending }) => {
-  // const renderTrending = () => {
-  //   return trending.map(({gifAnimated}, index) => {
-  //     return <GIF key={index} index={index} gif={gifAnimated} />
-  //   })
-  // }
   return (
     <>
       <TrendingHeader size='1.3rem'>
@@ -64,9 +47,7 @@ const Trending = ({ trending }) => {
         Trending
       </TrendingHeader>
       <TrendingContainer>
-        <Gallery>
-          <GIF />
-        </Gallery>
+        <GIF gifArray={trending} />
       </TrendingContainer>
       {/* <Carousel>{renderTrending()}</Carousel> */}
     </>
